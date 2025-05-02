@@ -6,7 +6,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Builder;
 
+
+/**
+ * App\Models\User
+ *
+ * @mixin Builder
+ */
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
@@ -32,6 +40,26 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    /**
+     * The attributes that should be appended to the model's array form.
+     *
+     * @return HasMany
+     */
+    public function tickets(): HasMany
+    {
+        return $this->hasMany( Ticket::class );
+    }
+
+    /**
+     * The attributes that should be appended to the model's array form.
+     *
+     * @return HasMany
+     */
+    public function messages(): HasMany
+    {
+        return $this->hasMany( TicketMessage::class );
+    }
 
     /**
      * Get the attributes that should be cast.
