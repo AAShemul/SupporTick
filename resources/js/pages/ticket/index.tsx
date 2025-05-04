@@ -1,21 +1,21 @@
-import Index from '@/components/page/index';
+import Ticket from '@/components/page/ticket';
 import AppLayout from '@/layouts/app-layout';
 import type { BreadcrumbItem } from '@/types';
 import { Head } from '@inertiajs/react';
 
 const breadcrumbs: BreadcrumbItem[] = [
 	{
-		title: 'Dashboard',
-		href: '/dashboard',
+		title: 'Ticket',
+		href: '/ticket',
 	},
 ];
 
-export default function DashboardPage() {
+export default function TicketPage() {
 	return (
 		<AppLayout breadcrumbs={breadcrumbs}>
-			<Head title="Dashboard" />
+			<Head title="Ticket" />
 			<div className="flex h-full flex-1 flex-col gap-4 rounded-xl p-4">
-				<Index />
+				<Ticket />
 			</div>
 		</AppLayout>
 	);
